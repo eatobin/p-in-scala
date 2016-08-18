@@ -37,7 +37,7 @@ List("a", "b", "c").map(x => constFun1(x))
 List("a", "b", "c").map(x => identFun(x))
 List(22, 33, 44).map(x => identFun(x))
 
-def tester43[A](x: List[A], f: A => A): List[A] = {
+def tester43[A, B](x: List[A], f: A => B): List[B] = {
   val li = x.map((r: A) => f(r: A))
   li
 }
@@ -52,6 +52,7 @@ def tester62[X, Y](x: List[X]): List[Int] = {
   li
 }
 
-tester3(List(1, 2, 44), identFun)
-tester3(List(1, 2, 44), constFun1)
-tester43(List(1, 2, 44), identFun)
+println(tester3(List(1, 2, 44), identFun))
+println(tester3(List(1, 2, 44), constFun1))
+println(tester43(List(1, 2, 44), constFun1))
+println(tester43(List(1, 2, 44), identFun))
