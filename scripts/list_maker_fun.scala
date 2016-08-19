@@ -37,8 +37,28 @@ List("a", "b", "c").map(x => constFun1(x))
 List("a", "b", "c").map(x => identFun(x))
 List(22, 33, 44).map(x => identFun(x))
 
-def tester43[A, B](x: List[A], f: A => B): List[B] = {
-  val li = x.map((r: A) => f(r: A))
+def testerA[A](l: List[A], f: A => A): List[A] = {
+  val li = l.map((r: A) => f(r: A))
+  li
+}
+//testerA (List('a','b','c'), identFun[Char])
+
+def testerBest[A](l: List[A])(f: A => A): List[A] =
+  l.map(f)
+//scala> testerBest (List(1,2,3)) (identFun)
+
+def testerBestEst[A, B](l: List[A])(f: A => B): List[B] =
+  l.map(f)
+//scala> testerBestEst (List(1,2,3)) (identFun)
+
+def testerCurried[A](l: List[A])(f: A => A): List[A] = {
+  val li = l.map((r: A) => f(r: A))
+  li
+}
+//testerCurried (List(1,2,3)) (identFun)
+
+def testerChar(l: List[Char], f: Char => Char): List[Char] = {
+  val li = l.map((r: Char) => f(r: Char))
   li
 }
 
@@ -47,12 +67,7 @@ def tester3(x: List[Int], f: Int => Int): List[Int] = {
   li
 }
 
-def tester62[X, Y](x: List[X]): List[Int] = {
-  val li = x.map(r => constFun1(r))
-  li
-}
-
 println(tester3(List(1, 2, 44), identFun))
 println(tester3(List(1, 2, 44), constFun1))
-println(tester43(List(1, 2, 44), constFun1))
-println(tester43(List(1, 2, 44), identFun))
+println(testerBestEst(List(1, 2, 44))(constFun2))
+println(testerBestEst(List('a', 'b', 'c'))(identFun))
