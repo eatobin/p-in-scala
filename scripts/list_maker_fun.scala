@@ -51,6 +51,9 @@ def testerBestEst[A, B](l: List[A])(f: A => B): List[B] =
   l.map(f)
 //scala> testerBestEst (List(1,2,3)) (identFun)
 
+def testerBestEst2[A, B](xs: List[A])(f: A => B): List[B] =
+  xs.map((x: A) => f(x: A))
+
 def testerCurried[A](l: List[A])(f: A => A): List[A] = {
   val li = l.map((r: A) => f(r: A))
   li
