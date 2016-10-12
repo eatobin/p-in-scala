@@ -6,7 +6,7 @@ object BorrowerX {
 
   def findBorrowerX(n: String, brs: List[BorrowerX]): BorrowerX = {
 
-    val coll: List[BorrowerX] = brs.filter(getName(_) == n)
+    val coll: List[BorrowerX] = brs.filter(b => getName(b) == n)
 
     if (coll.isEmpty) {
       null
@@ -18,7 +18,7 @@ object BorrowerX {
 
   def findBorrowerX2(n: String, brs: List[BorrowerX], f: BorrowerX => String): BorrowerX = {
 
-    val coll: List[BorrowerX] = brs.filter(f(_) == n)
+    val coll: List[BorrowerX] = brs.filter(b => f(b) == n)
 
     if (coll.isEmpty) {
       null
