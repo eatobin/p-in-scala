@@ -31,6 +31,7 @@ object BorrowerX {
 }
 
 // :paste /home/eric/scala_projects/p-in-scala/src/main/scala/BorrowerX.scala
+// :paste /Users/eatobin/scala_projects/p-in-scala/src/main/scala/BorrowerX.scala
 // val br1 = BorrowerX("Borrower1", 1)
 // val br2 = BorrowerX("Borrower2", 2)
 // val br3 = BorrowerX("Borrower3", 3)
