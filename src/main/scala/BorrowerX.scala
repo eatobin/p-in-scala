@@ -7,7 +7,8 @@ object BorrowerX {
   def getName2(br: BorrowerX, c: Int): String =
     if (c == 0)
       br.name.toLowerCase()
-    else br.name.toUpperCase()
+    else
+      br.name.toUpperCase()
 
   def findBorrowerX(n: String, brs: List[BorrowerX]): BorrowerX = {
     val coll: List[BorrowerX] = brs.filter(b => getName(b) == n)
