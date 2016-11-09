@@ -7,3 +7,5 @@ def printArray(i: Int, xs: Array[String]) {
 }
 
 printArray(0, Array("first", "second", "third"))
+
+// :load /Users/eatobin/scala_projects/p-in-scala/scripts/tailrec_print_array.scala

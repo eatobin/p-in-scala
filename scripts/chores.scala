@@ -6,3 +6,5 @@ def doChore(chore: String): String = chore match {
 
 println(doChore("clean dishes"))
 println(doChore("mow lawn"))
+
+// :load /Users/eatobin/scala_projects/p-in-scala/scripts/chores.scala

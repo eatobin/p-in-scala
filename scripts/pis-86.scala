@@ -3,3 +3,5 @@ val threeFour = List(3, 4)
 val oneTwoThreeFour = oneTwo ::: threeFour
 println(oneTwo + " and " + threeFour + " were not mutated.")
 println("Thus, " + oneTwoThreeFour + " is a new list.")
+
+// :load /Users/eatobin/scala_projects/p-in-scala/scripts/pis-86.scala
