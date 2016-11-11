@@ -3,6 +3,8 @@ object Hello {
     println("Hello, world!")
     println(testerBestEst(pets)(constFun2))
     println(testerBestEst2(ints)(constFun2))
+    println(testerBestEst(pets)(identFun))
+    println(testerBestEst(ints)(identFun))
   }
 
   def testerBestEst[A, B](xs: List[A])(f: A => B): List[B] =
@@ -13,6 +15,8 @@ object Hello {
 
   def constFun2[A](a: A): String =
     "Eric"
+
+  def identFun[A](a: A): A = a
 
   def ints = List(22, 33, 44)
 
