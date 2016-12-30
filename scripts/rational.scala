@@ -48,3 +48,5 @@ x + y
 val r = new Rational(2, 3)
 r * r
 r * 2
+
+// :load /home/eric/scala_projects/p-in-scala/scripts/rational.scala
