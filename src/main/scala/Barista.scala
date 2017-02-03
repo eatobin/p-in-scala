@@ -6,7 +6,7 @@ class Barista extends Actor {
   var cappuccinoCount = 0
   var espressoCount = 0
 
-  def receive = {
+  def receive: PartialFunction[Any, Unit] = {
     case CappuccinoRequest =>
       sender ! Bill(250)
       cappuccinoCount += 1
@@ -20,7 +20,7 @@ class Barista extends Actor {
 }
 
 class Customer(caffeineSource: ActorRef) extends Actor {
-  def receive = {
+  def receive: PartialFunction[Any, Unit] = {
     case CaffeineWithdrawalWarning => caffeineSource ! EspressoRequest
     case Bill(cents) => println(s"I have to pay $cents cents, or else!")
   }

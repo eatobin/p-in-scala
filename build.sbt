@@ -9,5 +9,5 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.4.14",
   "org.scala-stm" %% "scala-stm" % "0.8",
-  "io.spray" %% "spray-json" % "1.3.2"
+  "io.spray" %% "spray-json" % "1.3.3"
 )
