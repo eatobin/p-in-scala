@@ -54,6 +54,9 @@ def testerBestEst[A, B](l: List[A])(f: A => B): List[B] =
 def testerBestEst2[A, B](xs: List[A])(f: A => B): List[B] =
   xs.map((x: A) => f(x: A))
 
+def testerBestEst3[A, B](xs: List[A], f: A => B): List[B] =
+  xs.map((x: A) => f(x: A))
+
 def testerCurried[A](l: List[A])(f: A => A): List[A] = {
   val li = l.map((r: A) => f(r: A))
   li
@@ -69,6 +72,33 @@ def tester3(x: List[Int], f: Int => Int): List[Int] = {
   val li = x.map(j => f(j))
   li
 }
+
+val list: List[Int] = List(33, 44, 55)
+
+//scala> testerBestEst3[Int,Int](list,identity)
+//res8: List[Int] = List(33, 44, 55)
+
+//scala> testerBestEst3[Int,String](list,constFun2)
+//res11: List[String] = List(Eric, Eric, Eric)
+
+//scala> testerBestEst3(list,identFun[Int])
+//res14: List[Int] = List(33, 44, 55)
+
+//partial application:
+//scala> val tt = testerBestEst2(list)(_: Int => Int)
+//tt: (Int => Int) => List[Int] = $$Lambda$1415/1450335472@2b4dcf0d
+//
+//scala> tt(identFun)
+//res23: List[Int] = List(33, 44, 55)
+//
+//scala> tt(constFun1)
+//res24: List[Int] = List(1, 1, 1)
+//
+//scala> val tt = testerBestEst2(list)(_: Int => String)
+//tt: (Int => String) => List[String] = $$Lambda$1419/932879787@35c395cc
+//
+//scala> tt(constFun2)
+//res25: List[String] = List(Eric, Eric, Eric)
 
 println(tester3(List(1, 2, 44), identFun))
 println(tester3(List(1, 2, 44), constFun1))
