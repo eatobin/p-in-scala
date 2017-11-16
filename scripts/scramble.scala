@@ -1,14 +1,12 @@
-var list: List[Char] = List('a', 'b', 'c', 'd', 'e')
-val r = scala.util.Random
-
-def forLoop(): Unit = {
-  for (i <- list.indices) {
-    val helperK = r.nextInt(list.length)
-    val helperV = list(i)
-    list = list.updated(i, list(helperK))
-    list = list.updated(helperK, helperV)
+def forLoop(array: Array[Char]): Unit = {
+  val r = scala.util.Random
+  for (i <- array.indices) {
+    val helperK = r.nextInt(array.length)
+    val helperV = array(i)
+    array(i) = array(helperK)
+    array(helperK) = helperV
   }
-  println(list)
+  println("(" ++ array.mkString(", ") ++ ")")
 }
 
-forLoop()
+forLoop(Array('a', 'b', 'c', 'd', 'e'))
