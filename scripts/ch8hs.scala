@@ -78,3 +78,12 @@ def dividedBy(num: Int)(denom: Int): (Int, Int) = {
 //res28: (Int, Int) = (5,0)
 //scala> dividedBy(21)(4)
 //res29: (Int, Int) = (5,1)
+
+def mc91(i: Int): Int =
+  i match {
+    case n if n > 100 => n - 10
+    case n => (mc91 _ compose mc91) (n + 11)
+  }
+
+//scala> (95 to 110).map(mc91)
+//res3: scala.collection.immutable.IndexedSeq[Int] = Vector(91, 91, 91, 91, 91, 91, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100)
